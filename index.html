@@ -239,6 +239,152 @@ body{overflow:hidden}
 .rb-portfolio .rb-fact-bubble p{width:90.9%;transform:scaleX(1.1);transform-origin:left center;overflow-wrap:break-word}
 @media(max-width:700px){.rb-portfolio .rb-fact-bubble{width:min(320px,calc(100vw - 125px))!important}}
 
+
+/* Achievement tab layout only; shared portfolio theme remains unchanged. */
+.rb-portfolio.tab-2 .rb-main{inset:140px 3.9% 80px;align-items:stretch;overflow-y:auto}
+.rb-portfolio.tab-2 #rb-sec{height:100%}
+.rb-portfolio .rb-achievements-layout{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:16px;min-height:100%;align-items:stretch}
+.rb-portfolio .rb-achievements-panel{padding:24px;min-width:0}
+.rb-portfolio .rb-achievements-panel>h2{font-size:21px;font-weight:400;letter-spacing:-.03em;margin:0 0 24px}
+.rb-portfolio .rb-achievements-panel h3{font-size:15px;font-weight:600;margin:0 0 8px;line-height:1.45}
+.rb-portfolio .rb-achievements-panel p:not(.rb-about-eyebrow){font-size:13px;color:var(--muted);line-height:1.7}
+.rb-portfolio .rb-achievements-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.rb-portfolio .rb-achievement-item{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--topic-bg)}
+.rb-portfolio .rb-achievement-item .rb-about-eyebrow{margin-bottom:12px}
+.rb-portfolio .rb-education-timeline{border-left:1px solid var(--line);margin-left:5px;padding-left:20px}
+.rb-portfolio .rb-education-timeline section{position:relative;padding-bottom:20px}
+.rb-portfolio .rb-education-timeline section:before{content:"";position:absolute;left:-25px;top:3px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+@media(max-width:1100px){.rb-portfolio .rb-achievements-layout{grid-template-columns:1fr 1.3fr}.rb-portfolio .rb-achievements-panel:last-child{grid-column:1/-1}}
+@media(max-width:700px){.rb-portfolio.tab-2 .rb-main{inset:145px 7% 80px}.rb-portfolio .rb-achievements-layout{grid-template-columns:1fr;min-height:0}.rb-portfolio .rb-achievements-panel:last-child{grid-column:auto}.rb-portfolio .rb-achievements-panel{padding:20px}.rb-portfolio .rb-achievements-cards{grid-template-columns:1fr}}
+
+
+/* Compact Achievement tab: small photos followed by titles. */
+.rb-portfolio.tab-2 .rb-main{overflow:hidden}
+.rb-portfolio .rb-achievements-panel{padding:16px}
+.rb-portfolio .rb-achievements-panel>h2{font-size:18px;margin-bottom:16px}
+.rb-portfolio .rb-achievements-cards{gap:10px}
+.rb-portfolio .rb-achievement-item{padding:10px}
+.rb-portfolio .rb-achievement-item h3{font-size:12px;line-height:1.4;margin:10px 0 0}
+.rb-portfolio .rb-achievement-item .rb-photo img{object-fit:contain}
+.rb-portfolio .rb-education-timeline section{padding-bottom:12px}
+@media(max-width:1100px) and (min-width:701px){.rb-portfolio .rb-achievements-layout{grid-template-columns:1fr 1.3fr 1fr}.rb-portfolio .rb-achievements-panel:last-child{grid-column:auto}}
+@media(max-width:700px){.rb-portfolio.tab-2 .rb-main{position:absolute;inset:145px 4% 60px;overflow:hidden}.rb-portfolio .rb-achievements-layout{grid-template-columns:1fr 1.3fr 1fr;gap:6px;height:100%;min-height:0}.rb-portfolio .rb-achievements-panel{padding:8px;overflow:hidden}.rb-portfolio .rb-achievements-panel>h2{font-size:12px;margin-bottom:10px;overflow-wrap:anywhere}.rb-portfolio .rb-achievements-cards{grid-template-columns:1fr;gap:6px}.rb-portfolio .rb-achievement-item{padding:6px}.rb-portfolio .rb-achievement-item .rb-photo{height:55px!important}.rb-portfolio .rb-achievement-item h3{font-size:9px;margin-top:6px}.rb-portfolio .rb-achievements-panel h3{font-size:10px}.rb-portfolio .rb-achievements-panel p:not(.rb-about-eyebrow){font-size:9px;line-height:1.4}.rb-portfolio .rb-achievements-panel .rb-about-eyebrow{font-size:8px;letter-spacing:0}.rb-portfolio .rb-achievements-panel .rb-about-tags{gap:4px}.rb-portfolio .rb-achievements-panel .rb-about-tags li{font-size:8px;padding:4px}.rb-portfolio .rb-education-timeline{padding-left:10px;margin-left:3px}.rb-portfolio .rb-education-timeline section:before{left:-15px}.rb-portfolio .rb-achievements-panel .rb-profile-group{margin-top:8px}}
+
+
+/* Academic cards: full photo on the left, title on the right. */
+.rb-portfolio .rb-achievements-cards{grid-template-columns:1fr}
+.rb-portfolio .rb-achievement-item{display:grid;grid-template-columns:90px minmax(0,1fr);align-items:center;gap:14px}
+.rb-portfolio .rb-achievement-item .rb-photo{width:90px;height:90px!important}
+.rb-portfolio .rb-achievement-item .rb-photo img{object-fit:contain}
+.rb-portfolio .rb-achievement-item h3{margin:0;font-size:13px}
+@media(max-width:700px){.rb-portfolio .rb-achievement-item{grid-template-columns:40px minmax(0,1fr);gap:6px}.rb-portfolio .rb-achievement-item .rb-photo{width:40px;height:55px!important}.rb-portfolio .rb-achievement-item h3{margin:0;font-size:9px}}
+
+
+
+/* Achievement panel views */
+.rb-portfolio .rb-achievements-panel{position:relative}
+.rb-portfolio .rb-panel-open{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;border-radius:inherit;background:transparent;color:inherit;z-index:2;cursor:pointer}
+.rb-portfolio .rb-panel-open:hover{background:transparent!important;transform:none!important;box-shadow:inset 0 0 0 1px var(--accent)!important}
+.rb-portfolio .rb-panel-open::after{display:none}
+.rb-portfolio .rb-panel-return{display:none}
+.rb-portfolio.rb-achievements-full .rb-top{display:flex!important}.rb-portfolio.rb-achievements-full .rb-footer{display:flex!important}
+.rb-portfolio.tab-2.rb-achievements-full .rb-main{inset:140px 3.9% 80px!important;padding:0!important;overflow:hidden!important;align-items:stretch!important}
+.rb-portfolio.rb-achievements-full #rb-sec{height:100%}
+.rb-portfolio.rb-achievements-full .rb-achievements-layout{display:block!important;height:100%;min-height:0}
+.rb-portfolio.rb-achievements-full .rb-achievements-panel{display:none!important}
+.rb-portfolio.rb-open-academic .rb-expand-academic,.rb-portfolio.rb-open-cocurricular .rb-expand-cocurricular{display:flex!important;flex-direction:column;width:100%;height:100%;padding:24px;overflow:auto;gap:20px}
+.rb-portfolio.rb-achievements-full .rb-panel-open{display:none}
+.rb-portfolio.rb-achievements-full .rb-panel-return{display:block;align-self:flex-start;flex-shrink:0}
+.rb-portfolio.rb-achievements-full .rb-achievements-panel>h2{text-align:center;font-size:28px;margin:0}
+.rb-portfolio.rb-achievements-full .rb-achievements-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;width:100%;margin:auto 0}
+.rb-portfolio.rb-open-cocurricular .rb-achievements-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rb-portfolio.rb-achievements-full .rb-achievement-item{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;gap:18px;min-width:0}
+.rb-portfolio.rb-achievements-full .rb-achievement-item .rb-photo{width:100%!important;height:clamp(180px,47vh,540px)!important;margin:0!important}
+.rb-portfolio.rb-achievements-full .rb-achievement-item .rb-photo img{object-fit:contain!important;width:100%;height:100%}
+.rb-portfolio.rb-achievements-full .rb-achievement-item h3{width:100%;font-size:17px;line-height:1.5;text-align:center;margin:0}
+@media(max-width:900px){.rb-portfolio.rb-achievements-full .rb-achievements-cards,.rb-portfolio.rb-open-cocurricular .rb-achievements-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.rb-portfolio.tab-2.rb-achievements-full .rb-main{inset:145px 4% 60px!important;padding:0!important}.rb-portfolio.rb-achievements-full .rb-achievements-cards{grid-template-columns:1fr!important}.rb-portfolio.rb-open-academic .rb-expand-academic,.rb-portfolio.rb-open-cocurricular .rb-expand-cocurricular{padding:16px}.rb-portfolio.rb-achievements-full .rb-achievements-panel>h2{font-size:22px}}
+
+
+/* Keep every achievement visible without scrolling. */
+.rb-portfolio .rb-achievements-layout{height:100%;min-height:0}
+.rb-portfolio .rb-expand-cocurricular{display:flex;flex-direction:column;min-height:0}
+.rb-portfolio .rb-expand-cocurricular>h2{flex-shrink:0}
+.rb-portfolio .rb-expand-cocurricular .rb-achievements-cards{display:grid;grid-template-columns:1fr;grid-template-rows:repeat(4,minmax(0,1fr));flex:1;min-height:0;gap:10px}
+.rb-portfolio .rb-expand-cocurricular .rb-achievement-item{grid-template-columns:64px minmax(0,1fr);height:100%;min-height:0;padding:8px;gap:12px;overflow:hidden}
+.rb-portfolio .rb-expand-cocurricular .rb-achievement-item .rb-photo{width:64px;height:64px!important;max-height:100%}
+.rb-portfolio .rb-expand-cocurricular .rb-achievement-item h3{font-size:12px;line-height:1.4;margin:0;overflow-wrap:break-word}
+.rb-portfolio.rb-open-academic .rb-expand-academic,.rb-portfolio.rb-open-cocurricular .rb-expand-cocurricular{overflow:hidden!important;min-height:0;gap:16px}
+.rb-portfolio.rb-achievements-full .rb-panel-return{margin:0;flex-shrink:0}
+.rb-portfolio.rb-achievements-full .rb-achievements-panel>h2{flex-shrink:0;font-size:24px}
+.rb-portfolio.rb-achievements-full .rb-achievements-cards{flex:1;min-height:0;grid-template-rows:minmax(0,1fr);margin:0;align-items:stretch;gap:16px}
+.rb-portfolio.rb-achievements-full .rb-achievement-item{height:100%;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;padding:12px;gap:12px}
+.rb-portfolio.rb-achievements-full .rb-achievement-item .rb-photo{flex:1;min-height:0;width:100%!important;height:0px!important;max-height:none}
+.rb-portfolio.rb-achievements-full .rb-achievement-item h3{flex-shrink:0;font-size:15px;text-align:center}
+@media(max-width:900px){.rb-portfolio.rb-achievements-full .rb-achievements-cards{grid-template-rows:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.rb-portfolio .rb-expand-cocurricular .rb-achievement-item{grid-template-columns:32px minmax(0,1fr);padding:5px;gap:5px}.rb-portfolio .rb-expand-cocurricular .rb-achievement-item .rb-photo{width:32px;height:46px!important}.rb-portfolio .rb-expand-cocurricular .rb-achievement-item h3{font-size:9px}.rb-portfolio.rb-achievements-full .rb-achievements-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr));gap:8px}.rb-portfolio.rb-achievements-full .rb-achievement-item .rb-photo{width:100%!important;height:0px!important}.rb-portfolio.rb-achievements-full .rb-achievement-item h3{font-size:11px}.rb-portfolio.rb-achievements-full .rb-achievements-panel>h2{font-size:18px}.rb-portfolio.rb-achievements-full .rb-achievement-item{padding:8px;gap:8px}}
+
+
+/* Bound image content to its photo frame so intrinsic dimensions cannot stretch cards. */
+.rb-portfolio .rb-achievement-item .rb-photo{position:relative;overflow:hidden;min-width:0;min-height:0}
+.rb-portfolio .rb-achievement-item .rb-photo img{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;max-width:100%;max-height:100%;object-fit:contain!important;object-position:center;transform:none!important}
+.rb-portfolio .rb-expand-academic .rb-achievement-item:nth-child(3) .rb-photo img{object-fit:cover!important;object-position:50% 78%}
+.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievement-item{width:auto!important;min-width:0;min-height:0;flex:none}
+.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievement-item .rb-photo{display:block;align-self:stretch;flex:1 1 0px;width:100%!important;height:auto!important;min-height:0;max-height:none}
+.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievement-item .rb-photo img{object-fit:contain!important;object-position:center;transform:none!important}
+.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievements-cards{height:0;flex:1 1 0px;min-height:0}
+
+
+/* Shared expanded layout for Academic and Co-curricular Achievements. */
+.rb-portfolio.rb-achievements-full .rb-expand-academic .rb-achievements-cards,
+.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievements-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:minmax(0,1fr);grid-auto-rows:minmax(0,1fr);height:0;flex:1 1 0px;min-height:0;gap:16px;margin:0;align-items:stretch}
+.rb-portfolio.rb-open-cocurricular .rb-expand-cocurricular .rb-achievements-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rb-portfolio.rb-achievements-full .rb-expand-academic .rb-achievement-item,
+.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievement-item{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;width:auto;height:100%;min-width:0;min-height:0;padding:12px;gap:12px;overflow:hidden}
+.rb-portfolio.rb-achievements-full .rb-expand-academic .rb-achievement-item .rb-photo,
+.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievement-item .rb-photo{display:block;position:relative;align-self:stretch;flex:1 1 0px;width:100%!important;height:auto!important;min-height:0;max-height:none}
+.rb-portfolio.rb-achievements-full .rb-achievement-item h3{flex:0 0 auto;width:100%;margin:0;font-size:15px;line-height:1.5;text-align:center}
+@media(max-width:900px){.rb-portfolio.rb-achievements-full .rb-expand-academic .rb-achievements-cards,.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievements-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr));gap:8px}}
+@media(max-width:700px){.rb-portfolio.rb-achievements-full .rb-achievement-item h3{font-size:11px}.rb-portfolio.rb-achievements-full .rb-expand-academic .rb-achievement-item,.rb-portfolio.rb-achievements-full .rb-expand-cocurricular .rb-achievement-item{padding:8px;gap:8px}}
+
+
+/* Consistent, gentle motion without changing content or layout. */
+@media(prefers-reduced-motion:no-preference){
+.rb-portfolio button{transition:background-color .25s ease,color .25s ease,transform .3s cubic-bezier(.22,1,.36,1),border-color .25s ease,box-shadow .3s ease}
+.rb-portfolio button:active{transform:translateY(0) scale(.985)!important}
+.rb-portfolio .rb-contours{transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.rb-portfolio .rb-portrait-wrap{transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.rb-portfolio .rb-photo img{transition:transform .65s cubic-bezier(.22,1,.36,1),filter .4s ease}
+.rb-portfolio .rb-photo:hover img{transform:scale(1.035)}
+.rb-portfolio .rb-topic:hover{transform:translateY(-5px) rotate(-.4deg)!important}
+.rb-portfolio .rb-cdot{transition:width .25s ease,height .25s ease,border-radius .25s ease,transform .2s ease,background-color .25s ease}
+}
+@media(prefers-reduced-motion:reduce){
+.rb-portfolio .rb-cursor{display:none!important}
+.rb-portfolio.rb-custom-cursor,.rb-portfolio.rb-custom-cursor *{cursor:auto!important}
+}
+
+/* Refined layered movement. */
+@media(prefers-reduced-motion:no-preference){
+.rb-portfolio .rb-orb{transition:right 1.2s cubic-bezier(.22,1,.36,1),top 1.2s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1),opacity .4s ease}
+.rb-portfolio .rb-head,.rb-portfolio .rb-body{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.rb-portfolio .rb-about-icon,.rb-portfolio .rb-about-tags li{transition:transform .3s cubic-bezier(.22,1,.36,1),background-color .3s ease,border-color .3s ease}
+.rb-portfolio .rb-flip-in{transition:transform .7s cubic-bezier(.22,1,.36,1)}
+}
+
+/* Calm, continuous transitions; reduced-motion rules remain unchanged. */
+@media(prefers-reduced-motion:no-preference){
+.rb-portfolio{transition:background-color .7s ease,color .7s ease}
+.rb-portfolio button{transition:background-color .45s ease,color .45s ease,transform .5s cubic-bezier(.22,1,.36,1),border-color .45s ease,box-shadow .5s ease}
+.rb-portfolio .rb-contours{transition:transform 1.1s cubic-bezier(.22,1,.36,1)}
+.rb-portfolio .rb-orb{transition:right 2s cubic-bezier(.22,1,.36,1),top 2s cubic-bezier(.22,1,.36,1),transform 1.2s cubic-bezier(.22,1,.36,1),opacity .7s ease}
+.rb-portfolio .rb-portrait-wrap{transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.rb-portfolio .rb-photo img{transition:transform 1s cubic-bezier(.22,1,.36,1),filter .7s ease}
+.rb-portfolio .rb-head,.rb-portfolio .rb-body{transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.rb-portfolio .rb-about-card,.rb-portfolio .rb-about-icon,.rb-portfolio .rb-about-tags li{transition:transform .5s cubic-bezier(.22,1,.36,1),background-color .6s ease,border-color .5s ease,box-shadow .5s ease}
+.rb-portfolio .rb-flip-in{transition:transform 1s cubic-bezier(.22,1,.36,1)}
+.rb-portfolio .rb-float{animation-duration:5s}
+}
 </style>
 </head>
 <body>
@@ -269,9 +415,25 @@ body{overflow:hidden}
     infoPhoto: "", pastPhoto: "", presentPhoto: "", futurePhoto: "",
     facts: "Here’s a byte-sized fact: one byte contains 8 bits. Each bit can represent a 0 or a 1. | I use RAM as a computer’s short-term workspace. Its contents are usually lost when the power is turned off. | An SSD stores data in flash memory, so it doesn’t need the spinning disks found in a hard disk drive. | The internet and the Web aren’t the same thing! The internet connects networks; the Web is one service that runs on it. | DNS is like an address book for the internet. It translates domain names into IP addresses. | A CPU executes instructions, while a GPU is designed to handle many operations in parallel. | Multi-factor authentication adds another layer of protection beyond a password, such as an authenticator app or security key. | A backup is a separate copy of your data. Syncing files alone isn’t always a backup, because deletions can sync too.",
     achievements: [
-      { title: "A moment to be proud of.", year: "YOUR FIRST MILESTONE", description: "Add your award, school achievement, certificate, or a personal victory. Every step forward deserves a place in your story.", image: "" },
-      { title: "One step further.", year: "YOUR NEXT CHAPTER", description: "Tell the story behind another accomplishment — the effort, the lesson, and what it meant to you.", image: "" }
-    ]
+      {
+            "title": "Junior High school Graduation",
+            "year": "",
+            "description": "",
+            "image": "https://framerusercontent.com/images/URZ4XjW6VjsdWjvt58VAb7F8B8.png?width=1536&height=1500&kb=2547"
+      },
+      {
+            "title": "Senior High School Principal’s lister recognition",
+            "year": "",
+            "description": "",
+            "image": "https://framerusercontent.com/images/ZmVY9ePZwjw3MjBVznjsE4uurQ.png?width=369&height=509&kb=287"
+      },
+      {
+            "title": "Senior High School Graduation With Honors",
+            "year": "",
+            "description": "",
+            "image": "https://framerusercontent.com/images/PpRIYecxWIHNyavL2vE7lkn5OE.png?width=1536&height=2048&kb=2580"
+      }
+]
   };
   /* ===================================================================== */
 
@@ -379,24 +541,24 @@ body{overflow:hidden}
     }
     host.getAnimations().forEach(function (a) { a.cancel(); });
     if (host.dataset.has && dur > 0) {
-      var a = host.animate(spec.exit, { duration: dur * 1000, easing: spec.ease, fill: "forwards" });
+      var a = host.animate(spec.exit, { duration: dur * 350, easing: "cubic-bezier(.4,0,1,1)", fill: "forwards" });
       a.onfinish = run;
     } else run();
   }
   var SEC_SPEC = {
-    dur: 0.55, ease: EASE,
-    enter: [{ opacity: 0, transform: "translateY(45px) scale(.975)", filter: "blur(8px)" }, { opacity: 1, transform: "none", filter: "blur(0px)" }],
-    exit: [{ opacity: 1, transform: "none", filter: "blur(0px)" }, { opacity: 0, transform: "translateY(-25px)", filter: "blur(6px)" }]
+    dur: 0.65, ease: EASE,
+    enter: [{ opacity: 0, transform: "translateY(18px) scale(.99)", filter: "blur(0px)" }, { opacity: 1, transform: "none", filter: "blur(0px)" }],
+    exit: [{ opacity: 1, transform: "none", filter: "blur(0px)" }, { opacity: 0, transform: "translateY(-10px)", filter: "blur(0px)" }]
   };
   var TOPIC_SPEC = {
-    dur: 0.5, ease: EASE,
-    enter: [{ opacity: 0, transform: "translateX(45px) scale(.97)", filter: "blur(8px)" }, { opacity: 1, transform: "none", filter: "blur(0px)" }],
-    exit: [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateX(-25px) scale(.98)" }]
+    dur: 0.6, ease: EASE,
+    enter: [{ opacity: 0, transform: "translateX(20px) scale(.99)", filter: "blur(0px)" }, { opacity: 1, transform: "none", filter: "blur(0px)" }],
+    exit: [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateX(-10px) scale(.99)" }]
   };
   var SLIDE_SPEC = {
-    dur: 0.4, ease: "ease-out",
-    enter: [{ opacity: 0, transform: "translateY(35px)" }, { opacity: 1, transform: "none" }],
-    exit: [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-35px)" }]
+    dur: 0.6, ease: EASE,
+    enter: [{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "none" }],
+    exit: [{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-14px)" }]
   };
 
   /* ---------- tab templates ---------- */
@@ -430,9 +592,14 @@ body{overflow:hidden}
   function renderTopic() { sync(); }
 
   function tabAchievements() {
-    return '<p class="rb-label" style="margin-bottom:28px">03 / SMALL WINS. BIG FEELINGS.</p>' +
-      '<div id="rb-slide-host"></div>' +
-      '<div id="rb-dots" style="display:flex;gap:6px;margin-top:28px"></div>';
+    var cards = awards.map(function (a) {
+      return '<article class="rb-achievement-item">' + (a.image ? photo(a.image, a.title, "height:90px;border-radius:12px;margin-top:0") : '') + '<h3>' + esc(a.title) + '</h3>' + (a.year ? '<p class="rb-about-eyebrow">' + esc(a.year) + '</p>' : '') + (a.description ? '<p>' + esc(a.description) + '</p>' : '') + '</article>';
+    }).join("");
+    return '<div class="rb-achievements-layout">' +
+      '<article class="rb-about-card rb-achievements-panel"><h2>Education</h2><div class="rb-education-timeline"><section><p class="rb-about-eyebrow">ELEMENTARY</p><h3>Clarice Angels School</h3></section><section><p class="rb-about-eyebrow">JUNIOR HIGHSCHOOL</p><h3>Clarice Angels School</h3></section><section><p class="rb-about-eyebrow">SENIOR HIGHSCHOOL</p><h3>University of Luzon</h3><p>TVL ICT Computer Programming</p></section><section><p class="rb-about-eyebrow">COLLEGE</p><h3>University of the Cordilleras</h3><p>Bachelor of Science in Information Technology (BSIT)</p><p>Web Development</p></section></div></article>' +
+      '<article class="rb-about-card rb-achievements-panel rb-expand-academic"><button type="button" class="rb-panel-open" data-act="expand-achievement" data-panel="academic" aria-label="Open Academic Achievements"></button><button type="button" class="rb-btn rb-panel-return" data-act="close-achievement">Back to all three panels</button><h2>Academic Achievements</h2><div class="rb-achievements-cards">' + cards + '</div></article>' +
+      '<article class="rb-about-card rb-achievements-panel rb-expand-cocurricular"><button type="button" class="rb-panel-open" data-act="expand-achievement" data-panel="cocurricular" aria-label="Open Co-curricular Achievements"></button><button type="button" class="rb-btn rb-panel-return" data-act="close-achievement">Back to all three panels</button><h2>Co-curricular Achievements</h2><div class="rb-achievements-cards"><article class="rb-achievement-item"><div class="rb-photo" style="height:90px;border-radius:12px;margin-top:0"><img src="https://framerusercontent.com/images/ujtMYVif5K8UI1vwXxCGA2ZFFBI.png?width=576&height=768&kb=619" alt="2nd Place Table tennis Grade 11"></div><h3>2nd Place Table tennis Grade 11</h3></article><article class="rb-achievement-item"><div class="rb-photo" style="height:90px;border-radius:12px;margin-top:0"><img src="https://framerusercontent.com/images/aZU5eQY0e7Ifs1qhqgXljC8XGBU.png?width=576&height=768&kb=637" alt="2nd place volleyball Grade 11"></div><h3>2nd place volleyball Grade 11</h3></article><article class="rb-achievement-item"><div class="rb-photo" style="height:90px;border-radius:12px;margin-top:0"><img src="https://framerusercontent.com/images/zwxdkQwtjIMP1dVcXBAyKwSvk.png?width=1920&height=1080&kb=2123" alt="Champion Sabayang pagbigkas Grade 12"></div><h3>Champion Sabayang pagbigkas Grade 12</h3></article><article class="rb-achievement-item"><div class="rb-photo" style="height:90px;border-radius:12px;margin-top:0"><img src="https://framerusercontent.com/images/2ihftyljlztobZSNWrRgtq8Fp4.png?width=1536&height=2048&kb=2158" alt="Mr.UL SHS First Runner up Grade 12"></div><h3>Mr.UL SHS First Runner up Grade 12</h3></article></div></article>' +
+    '</div>';
   }
 
   function slideHTML() {
@@ -542,6 +709,7 @@ body{overflow:hidden}
   }
 
   function go(n) {
+    root.classList.remove("rb-achievements-full", "rb-open-academic", "rb-open-cocurricular");
     var same = n === S.tab, prevTopic = S.topic, prevSlide = S.slide;
     S.tab = n; S.topic = -1; S.slide = 0;
     if (!same) {
@@ -556,7 +724,7 @@ body{overflow:hidden}
   }
   function openTopic(i) { S.topic = i; renderTopic(); }
   function advance(d) {
-    if (S.tab !== 2) return;
+    if (S.tab !== 2 || root.classList.contains("rb-achievements-full")) return;
     var next = Math.max(0, Math.min(awards.length - 1, S.slide + d));
     if (next === S.slide) return;
     S.slide = next;
@@ -579,7 +747,6 @@ body{overflow:hidden}
     if (pointerFrame) return;
     pointerFrame = requestAnimationFrame(function (stamp) {
       pointerFrame = 0;
-      if (stamp - lastPointerPaint < 1000 / 30) return;
       lastPointerPaint = stamp;
       setPointer(pendingPointer);
     });
@@ -633,6 +800,7 @@ body{overflow:hidden}
 
   /* ---------- keyboard / wheel / touch ---------- */
   root.addEventListener("keydown", function (e) {
+    if (root.classList.contains("rb-achievements-full")) { if(e.key === "Escape") animateAchievementPanel(null, true); return; }
     if (e.key === "Escape" && S.tab === 1 && S.topic >= 0) { S.topic = -1; renderTopic(); return; }
     if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); advance(1); }
     if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); advance(-1); }
@@ -647,7 +815,7 @@ body{overflow:hidden}
   root.addEventListener("touchstart", function (e) { touchY = e.touches[0].clientY; }, { passive: true });
   root.addEventListener("touchend", function (e) {
     var d = touchY - e.changedTouches[0].clientY;
-    if (S.tab === 2 && Math.abs(d) > 40) advance(d > 0 ? 1 : -1);
+    if (S.tab === 2 && !root.classList.contains("rb-achievements-full") && Math.abs(d) > 40) advance(d > 0 ? 1 : -1);
   }, { passive: true });
 
   /* ---------- clicks ---------- */
@@ -656,6 +824,12 @@ body{overflow:hidden}
     if (!b || b.disabled) return;
     var i = +b.dataset.i;
     switch (b.dataset.act) {
+      case "expand-achievement":
+        animateAchievementPanel(b.dataset.panel, false);
+        break;
+      case "close-achievement":
+        animateAchievementPanel(null, true);
+        break;
       case "fact": S.factIndex++; setFactText(true); break;
       case "nav": go(i); break;
       case "theme":
@@ -688,7 +862,7 @@ body{overflow:hidden}
       { opacity: 1, transform: "scale(" + sc[2] + ")", filter: "blur(0px)", offset: 0.7, easing: "ease-in-out" },
       { opacity: 0, transform: "scale(" + sc[3] + ")", filter: "blur(10px)", offset: 1 }
     ];
-    t.animate(ks, { duration: 2600, fill: "forwards" });
+    t.animate(ks, { duration: 2000, fill: "forwards" });
   }
   function setIntro(v) {
     if (S.intro === v) return;
@@ -698,7 +872,7 @@ body{overflow:hidden}
       S.fact = true; sync();
       var el = introHost.firstElementChild;
       if (el) {
-        var a = el.animate([{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(1.1)" }], { duration: 700, easing: "ease-in-out", fill: "forwards" });
+        var a = el.animate([{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(1.1)" }], { duration: reduced ? 0 : 450, easing: EASE, fill: "forwards" });
         a.onfinish = function () { if (!S.intro) introHost.innerHTML = ""; };
       }
     }
@@ -711,7 +885,35 @@ body{overflow:hidden}
     if (!ctx) return;
     var w = 1, h = 1, frame = 0, time = 0, previous = 0, lastPaint = 0;
     var mouse = { x: 0.72, y: 0.4 };
-    var trail = [];
+    var goldTrail = [];
+    var pointerSpeed = 700, previousPointer = null;
+    var lastMove = -10000, idleMix = 1, idleOrigin = { x: .72, y: .4 }, idleStart = 0;
+    root.addEventListener("pointermove", function (event) {
+      var now = performance.now();
+      if (previousPointer) {
+        var elapsed = Math.max(.008, (now - previousPointer.time) / 1000);
+        pointerSpeed = Math.hypot(event.clientX - previousPointer.x, event.clientY - previousPointer.y) / elapsed;
+      }
+      previousPointer = { x: event.clientX, y: event.clientY, time: now };
+      lastMove = now;
+    }, { passive: true });
+    function star(x, y, radius, opacity) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.beginPath();
+      for (var q = 0; q < 8; q++) {
+        var angle = q * Math.PI / 4 - Math.PI / 2;
+        var r = q % 2 ? radius * .22 : radius;
+        if (!q) ctx.moveTo(Math.cos(angle) * r, Math.sin(angle) * r);
+        else ctx.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
+      }
+      ctx.closePath();
+      ctx.fillStyle = S.dark ? "rgba(255,241,200," + opacity + ")" : "rgba(123,92,32," + opacity + ")";
+      ctx.shadowColor = "rgba(224,192,111,.65)";
+      ctx.shadowBlur = radius > 5 ? 16 : 7;
+      ctx.fill();
+      ctx.restore();
+    }
     function resize() {
       var r = el.getBoundingClientRect();
       var nextW = Math.max(1, r.width), nextH = Math.max(1, r.height);
@@ -730,31 +932,58 @@ body{overflow:hidden}
     function draw(stamp) {
       frame = requestAnimationFrame(draw);
       if (document.hidden) { previous = 0; return; }
-      if (stamp - lastPaint < 1000 / 30) return;
       lastPaint = stamp;
       var dt = Math.min((stamp - previous) / 1000 || 0.016, 0.04);
       previous = stamp;
       time += reduced ? 0 : dt;
       var dark = S.dark, tab = S.tab, pointer = S.pointer;
-      mouse.x += ((pointer.x + 1) / 2 - mouse.x) * 0.045;
-      mouse.y += ((pointer.y + 1) / 2 - mouse.y) * 0.045;
+      var idle = stamp - lastMove > 1600;
+      if (!idle) { idleOrigin.x = mouse.x; idleOrigin.y = mouse.y; idleStart = time; }
+      idleMix += ((idle ? 1 : 0) - idleMix) * (1 - Math.exp(-dt * 7));
+      var travel = Math.max(0, time - idleStart);
+      var settle = 1 - Math.exp(-travel * .06);
+      var roamX = idleOrigin.x + (.5 - idleOrigin.x) * settle + Math.sin(travel * .075) * .32;
+      var roamY = idleOrigin.y + (.5 - idleOrigin.y) * settle + Math.sin(travel * .095) * .26;
+      var targetX = (pointer.x + 1) / 2 * (1 - idleMix) + roamX * idleMix;
+      var targetY = (pointer.y + 1) / 2 * (1 - idleMix) + roamY * idleMix;
+      // Responsive easing, limited by cursor speed during active movement.
+      var dx = (targetX - mouse.x) * w, dy = (targetY - mouse.y) * h;
+      var distance = Math.hypot(dx, dy);
+      var activePointer = stamp - lastMove < 100;
+      var speedLimit = idle ? 145 : activePointer ? Math.min(1800, pointerSpeed * .92) : 650;
+      var easedStep = distance * (1 - Math.exp(-dt * (idle ? 3.5 : 11)));
+      var step = Math.min(distance, easedStep, speedLimit * dt);
+      if (distance > .001) {
+        mouse.x += dx / distance * step / w;
+        mouse.y += dy / distance * step / h;
+      }
       var mx = mouse.x * w, my = mouse.y * h;
       ctx.clearRect(0, 0, w, h);
       if (!reduced) {
-        trail.push({ x: mx, y: my, life: 1 });
-        if (trail.length > 35) trail.shift();
-        for (var i = 1; i < trail.length; i++) {
-          var p = trail[i], prev = trail[i - 1];
-          p.life -= dt * 0.8;
+        goldTrail.forEach(function (p) { p.age += dt; });
+        goldTrail = goldTrail.filter(function (p) { return p.age < 1.4; });
+        var tail = goldTrail[goldTrail.length - 1];
+        if (!tail || Math.hypot(mx - tail.x, my - tail.y) > .65) {
+          goldTrail.push({ x: mx, y: my, age: 0 });
+        }
+        if (goldTrail.length > 160) goldTrail.shift();
+        ctx.save();
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        for (var i = 1; i < goldTrail.length; i++) {
+          var p = goldTrail[i], prev = goldTrail[i - 1];
+          var fade = Math.pow(Math.max(0, 1 - p.age / 1.4), 1.6);
           ctx.beginPath();
           ctx.moveTo(prev.x, prev.y);
           ctx.lineTo(p.x, p.y);
-          ctx.strokeStyle = dark
-            ? "rgba(218,225,239," + (((Math.max(0, p.life) * i) / trail.length) * 0.2) + ")"
-            : "rgba(55,65,82," + (((Math.max(0, p.life) * i) / trail.length) * 0.16) + ")";
-          ctx.lineWidth = (i / trail.length) * 1.6;
+          ctx.strokeStyle = dark ? "rgba(228,189,88," + fade * .8 + ")" : "rgba(168,119,29," + fade * .8 + ")";
+          ctx.lineWidth = .3 + fade * 2.5;
+          ctx.shadowColor = "rgba(224,181,66," + fade * .5 + ")";
+          ctx.shadowBlur = 8;
           ctx.stroke();
         }
+        ctx.restore();
+        star(mx, my, 10, .98);
       }
       var glow = ctx.createRadialGradient(mx, my, 0, mx, my, w * 0.5);
       glow.addColorStop(0, dark ? "rgba(180,186,196,.085)" : "rgba(58,69,89,.13)");
@@ -811,6 +1040,56 @@ body{overflow:hidden}
     frame = requestAnimationFrame(draw);
   }
 
+
+
+  /* Grow the original panel from its actual position rather than opening a popup. */
+  var achievementAnimating = false;
+  function animateAchievementPanel(key, closing) {
+    if (achievementAnimating) return;
+    var activeKey = key || (root.classList.contains("rb-open-academic") ? "academic" : "cocurricular");
+    var panel = root.querySelector(".rb-expand-" + activeKey);
+    if (!panel) return;
+    achievementAnimating = true;
+    var before = panel.getBoundingClientRect();
+    var duration = reduced ? 0 : 750;
+    var siblings = Array.from(root.querySelectorAll(".rb-achievements-panel")).filter(function(p){return p !== panel;});
+    function changeLayout() {
+      if (closing) root.classList.remove("rb-achievements-full", "rb-open-academic", "rb-open-cocurricular");
+      else {
+        root.classList.remove("rb-open-academic", "rb-open-cocurricular");
+        root.classList.add("rb-achievements-full", "rb-open-" + activeKey);
+      }
+      var after = panel.getBoundingClientRect();
+      panel.style.transformOrigin = "top left";
+      panel.style.zIndex = "5";
+      var transform = "translate(" + (before.left-after.left) + "px," + (before.top-after.top) + "px) scale(" + (before.width/after.width) + "," + (before.height/after.height) + ")";
+      var motion = panel.animate([{transform:transform},{transform:"none"}],{duration:duration,easing:"cubic-bezier(.22,1,.36,1)"});
+      if (closing) siblings.forEach(function(p){
+        p.animate([{opacity:0,transform:"translateY(16px)"},{opacity:1,transform:"none"}],{duration:duration*.7,delay:duration*.25,fill:"backwards",easing:"ease-out"});
+      });
+      var content = panel.querySelector(".rb-achievements-cards");
+      if(content && !closing) content.animate([{opacity:.15},{opacity:1}],{duration:duration*.65,delay:duration*.25,fill:"backwards"});
+      motion.onfinish = function(){
+        panel.style.transformOrigin = "";
+        panel.style.zIndex = "";
+        achievementAnimating = false;
+        C.clickable = false; renderCursor();
+        var focusTarget = panel.querySelector(closing ? ".rb-panel-open" : ".rb-panel-return");
+        if (focusTarget) focusTarget.focus({preventScroll:true});
+      };
+    }
+    if (closing || !duration) changeLayout();
+    else {
+      var fading = siblings.map(function(p){
+        return p.animate([{opacity:1,transform:"none"},{opacity:0,transform:"scale(.96)"}],{duration:180,fill:"forwards",easing:"ease-out"});
+      });
+      Promise.all(fading.map(function(a){return a.finished.catch(function(){});})).then(function(){
+        changeLayout();
+        fading.forEach(function(a){a.cancel();});
+      });
+    }
+  }
+
   /* ---------- boot ---------- */
   renderRobotSlots();
   setFactText(false);
@@ -823,7 +1102,7 @@ body{overflow:hidden}
     played = sessionStorage.getItem("rb-intro-v2") === "played";
     sessionStorage.setItem("rb-intro-v2", "played");
   } catch (e) {}
-  if (!played) { setIntro(true); setTimeout(function () { setIntro(false); }, 2800); }
+  if (!played && !reduced) { setIntro(true); setTimeout(function () { setIntro(false); }, 2200); }
 
   if (facts.length) {
     setInterval(function () {
