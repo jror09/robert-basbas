@@ -385,6 +385,79 @@ body{overflow:hidden}
 .rb-portfolio .rb-flip-in{transition:transform 1s cubic-bezier(.22,1,.36,1)}
 .rb-portfolio .rb-float{animation-duration:5s}
 }
+
+/* Horizontal achievement galleries with uncropped photographs. */
+.rb-portfolio:not(.rb-achievements-full) .rb-achievements-layout{
+ display:grid;grid-template-columns:minmax(170px,.65fr) minmax(0,2.35fr);
+ grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:12px;height:100%;min-height:0
+}
+.rb-portfolio:not(.rb-achievements-full) .rb-achievements-panel{
+ display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;padding:14px;grid-column:auto
+}
+.rb-portfolio:not(.rb-achievements-full) .rb-achievements-panel:first-child{grid-column:1;grid-row:1 / 3}
+.rb-portfolio:not(.rb-achievements-full) .rb-expand-academic{grid-column:2;grid-row:1}
+.rb-portfolio:not(.rb-achievements-full) .rb-expand-cocurricular{grid-column:2;grid-row:2}
+.rb-portfolio:not(.rb-achievements-full) .rb-achievements-panel>h2{flex:none;font-size:18px;margin:0 0 10px}
+.rb-portfolio:not(.rb-achievements-full) .rb-expand-academic .rb-achievements-cards,
+.rb-portfolio:not(.rb-achievements-full) .rb-expand-cocurricular .rb-achievements-cards{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:minmax(0,1fr);
+ flex:1 1 0;min-height:0;width:100%;gap:10px
+}
+.rb-portfolio:not(.rb-achievements-full) .rb-expand-cocurricular .rb-achievements-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rb-portfolio:not(.rb-achievements-full) .rb-achievement-item{
+ display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;
+ grid-template-columns:none;gap:8px;padding:8px;width:100%;height:100%;min-height:0;min-width:0;overflow:hidden
+}
+.rb-portfolio:not(.rb-achievements-full) .rb-achievement-item .rb-photo{
+ display:block;position:relative;flex:1 1 0;align-self:stretch;
+ width:100%!important;height:auto!important;max-height:none;min-height:0;margin:0!important
+}
+.rb-portfolio .rb-expand-academic .rb-achievement-item .rb-photo img,
+.rb-portfolio .rb-expand-cocurricular .rb-achievement-item .rb-photo img{
+ object-fit:contain!important;object-position:center!important;transform:none!important
+}
+.rb-portfolio:not(.rb-achievements-full) .rb-achievement-item h3{
+ flex:none;font-size:clamp(10px,1vw,13px);line-height:1.35;text-align:center;margin:0;overflow-wrap:break-word
+}
+@media(max-width:700px){
+ .rb-portfolio.tab-2 .rb-main{overflow-y:auto!important;overflow-x:hidden!important}
+ .rb-portfolio:not(.rb-achievements-full) .rb-achievements-layout{
+ grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(240px,1fr) minmax(360px,1.4fr);
+ height:auto;min-height:100%;gap:10px
+ }
+ .rb-portfolio:not(.rb-achievements-full) .rb-achievements-panel:first-child,
+ .rb-portfolio:not(.rb-achievements-full) .rb-expand-academic,
+ .rb-portfolio:not(.rb-achievements-full) .rb-expand-cocurricular{grid-column:1;grid-row:auto}
+ .rb-portfolio:not(.rb-achievements-full) .rb-achievements-panel{padding:12px}
+ .rb-portfolio:not(.rb-achievements-full) .rb-education-timeline{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+ .rb-portfolio:not(.rb-achievements-full) .rb-education-timeline section{padding-bottom:0}
+ .rb-portfolio:not(.rb-achievements-full) .rb-expand-cocurricular .rb-achievements-cards{
+ grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))
+ }
+ .rb-portfolio:not(.rb-achievements-full) .rb-achievement-item h3{font-size:11px}
+}
+
+
+/* School identity and attendance dates. */
+.rb-portfolio .rb-education-timeline{min-height:0;overflow-y:auto;overflow-x:hidden;padding-right:4px}
+.rb-portfolio .rb-school-heading{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.rb-portfolio .rb-school-heading>div{min-width:0}
+.rb-portfolio .rb-school-logo{display:block;width:42px;height:42px;flex:0 0 42px;object-fit:contain;background:#fff;border-radius:8px;padding:3px}
+.rb-portfolio .rb-school-heading .rb-about-eyebrow{margin:0 0 4px;line-height:1.35}
+.rb-portfolio .rb-education-timeline .rb-school-years{margin:0;font-size:12px!important;line-height:1.4!important;color:var(--accent)!important;font-weight:600}
+.rb-portfolio .rb-education-timeline section{padding-bottom:16px}
+.rb-portfolio .rb-education-timeline section:last-child{padding-bottom:0}
+@media(max-width:700px){
+ .rb-portfolio:not(.rb-achievements-full) .rb-education-timeline{overflow:visible}
+ .rb-portfolio .rb-school-logo{width:36px;height:36px;flex-basis:36px}
+ .rb-portfolio .rb-school-heading{gap:7px}
+ .rb-portfolio .rb-education-timeline .rb-school-years{font-size:11px!important}
+}
+
+.rb-portfolio .rb-personal-details{display:grid;gap:6px;margin:14px 0}
+.rb-portfolio .rb-personal-details p{margin:0;font-size:12px;line-height:1.6;color:var(--about-text,var(--fg))}
+.rb-portfolio .rb-personal-details .rb-about-label{display:inline;margin-right:6px}
+.rb-portfolio.tab-1 .rb-main{overflow-y:auto;overflow-x:hidden}
 </style>
 </head>
 <body>
@@ -586,7 +659,7 @@ body{overflow:hidden}
   }
 
   function tabInfo() {
-    return "<div class=\"rb-information-full rb-about\">\n  <header class=\"rb-about-heading\">\n    <p class=\"rb-label\">02 / THE PERSON BEHIND THE PIXELS</p>\n    <h1>Developer Profile<span>.</span></h1>\n  </header>\n  <div class=\"rb-about-grid\">\n    <article class=\"rb-about-card rb-about-identity\">\n      <p class=\"rb-about-eyebrow\">FULL NAME</p>\n      <h2>Robert M. Basbas Jr.</h2>\n      <div class=\"rb-about-location\"><span class=\"rb-about-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z\"/><circle cx=\"12\" cy=\"10\" r=\"2.5\"/></svg></span><div><span class=\"rb-about-label\">BASED IN</span><p>Baguio City, Benguet, Philippines</p></div></div>\n      <div class=\"rb-profile-nationality\"><span class=\"rb-about-label\">NATIONALITY &amp; LANGUAGES</span><p>Filipino | English, Tagalog</p></div><div class=\"rb-about-contact\">\n        <a href=\"mailto:robertbasbas89@gmail.com\" class=\"rb-about-contact-row\"><span class=\"rb-about-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"3\"/><path d=\"m3 7 9 6 9-6\"/></svg></span><span><span class=\"rb-about-label\">EMAIL</span><span class=\"rb-about-value\">robertbasbas89@gmail.com</span></span></a>\n        <a href=\"tel:09224788255\" class=\"rb-about-contact-row\"><span class=\"rb-about-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a15 15 0 0 1-7-7l2-2-2-5Z\"/></svg></span><span><span class=\"rb-about-label\">PHONE</span><span class=\"rb-about-value\">09224788255</span></span></a>\n      </div><div class=\"rb-profile-extra\"><h3>Tech &amp; Career Goals</h3><p>Focused on web development, software engineering, and automation.</p><h3>Personal Interests</h3><p>Gaming, hardware building, and digital web and graphic design.</p></div>\n    </article>\n    <article class=\"rb-about-card rb-about-skills\"><p class=\"rb-about-eyebrow\">MY TOOLKIT</p><section class=\"rb-profile-group\"><h3>Programming Languages</h3><ul class=\"rb-about-tags\"><li>Python</li><li>Java</li><li>HTML</li></ul></section><section class=\"rb-profile-group\"><h3>Hardware &amp; Circuit Design</h3><ul class=\"rb-about-tags\"><li>Logic Gate Decoding</li><li>7-Segment Hexadecimal Decoders</li><li>CircuitVerse Simulation</li></ul></section><section class=\"rb-profile-group\"><h3>Tools &amp; Platforms</h3><ul class=\"rb-about-tags\"><li>VS Code</li><li>Git &amp; GitHub</li><li>Canva</li></ul></section><section class=\"rb-profile-group\"><h3>Soft &amp; Professional Skills</h3><ul class=\"rb-about-tags\"><li>Problem-solving</li><li>Adaptability</li><li>Logical Thinking</li><li>Task Management</li></ul></section><section class=\"rb-profile-group\"><h3>School Profile</h3><ul class=\"rb-about-tags\"><li>University: University of the Cordilleras</li><li>Major: Bachelor of Science in Information Technology (BSIT) Web Development</li></ul></section></article>\n  </div>\n</div>";
+    return "<div class=\"rb-information-full rb-about\">\n  <header class=\"rb-about-heading\">\n    <p class=\"rb-label\">02 / THE PERSON BEHIND THE PIXELS</p>\n    <h1>Developer Profile<span>.</span></h1>\n  </header>\n  <div class=\"rb-about-grid\">\n    <article class=\"rb-about-card rb-about-identity\">\n      <p class=\"rb-about-eyebrow\">FULL NAME</p>\n      <h2>Robert M. Basbas Jr.</h2>\n      <div class=\"rb-about-location\"><span class=\"rb-about-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z\"/><circle cx=\"12\" cy=\"10\" r=\"2.5\"/></svg></span><div><span class=\"rb-about-label\">BASED IN</span><p>Baguio City, Benguet, Philippines</p></div></div>\n      <div class=\"rb-profile-nationality\"><span class=\"rb-about-label\">NATIONALITY &amp; LANGUAGES</span><p>Filipino | English, Tagalog</p></div><div class=\"rb-personal-details\"><p><span class=\"rb-about-label\">Civil Status:</span> Single</p><p><span class=\"rb-about-label\">Height:</span> 5′8″ Ft</p><p><span class=\"rb-about-label\">Weight:</span> 70 Kg</p></div><div class=\"rb-about-contact\">\n        <a href=\"mailto:robertbasbas89@gmail.com\" class=\"rb-about-contact-row\"><span class=\"rb-about-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"3\"/><path d=\"m3 7 9 6 9-6\"/></svg></span><span><span class=\"rb-about-label\">EMAIL</span><span class=\"rb-about-value\">robertbasbas89@gmail.com</span></span></a>\n        <a href=\"tel:09224788255\" class=\"rb-about-contact-row\"><span class=\"rb-about-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a15 15 0 0 1-7-7l2-2-2-5Z\"/></svg></span><span><span class=\"rb-about-label\">PHONE</span><span class=\"rb-about-value\">09224788255</span></span></a>\n      </div><div class=\"rb-profile-extra\"><h3>Tech &amp; Career Goals</h3><p>Focused on web development, software engineering, and automation.</p><h3>Personal Interests</h3><p>Gaming, hardware building, and digital web and graphic design.</p></div>\n    </article>\n    <article class=\"rb-about-card rb-about-skills\"><p class=\"rb-about-eyebrow\">MY TOOLKIT</p><section class=\"rb-profile-group\"><h3>Programming Languages</h3><ul class=\"rb-about-tags\"><li>Python</li><li>Java</li><li>HTML</li></ul></section><section class=\"rb-profile-group\"><h3>Hardware &amp; Circuit Design</h3><ul class=\"rb-about-tags\"><li>Logic Gate Decoding</li><li>7-Segment Hexadecimal Decoders</li><li>CircuitVerse Simulation</li></ul></section><section class=\"rb-profile-group\"><h3>Tools &amp; Platforms</h3><ul class=\"rb-about-tags\"><li>VS Code</li><li>Git &amp; GitHub</li><li>Canva</li></ul></section><section class=\"rb-profile-group\"><h3>Soft &amp; Professional Skills</h3><ul class=\"rb-about-tags\"><li>Problem-solving</li><li>Adaptability</li><li>Logical Thinking</li><li>Task Management</li></ul></section><section class=\"rb-profile-group\"><h3>School Profile</h3><ul class=\"rb-about-tags\"><li>University: University of the Cordilleras</li><li>Major: Bachelor of Science in Information Technology (BSIT) Web Development</li></ul></section></article>\n  </div>\n</div>";
   }
 
   function renderTopic() { sync(); }
@@ -596,7 +669,7 @@ body{overflow:hidden}
       return '<article class="rb-achievement-item">' + (a.image ? photo(a.image, a.title, "height:90px;border-radius:12px;margin-top:0") : '') + '<h3>' + esc(a.title) + '</h3>' + (a.year ? '<p class="rb-about-eyebrow">' + esc(a.year) + '</p>' : '') + (a.description ? '<p>' + esc(a.description) + '</p>' : '') + '</article>';
     }).join("");
     return '<div class="rb-achievements-layout">' +
-      '<article class="rb-about-card rb-achievements-panel"><h2>Education</h2><div class="rb-education-timeline"><section><p class="rb-about-eyebrow">ELEMENTARY</p><h3>Clarice Angels School</h3></section><section><p class="rb-about-eyebrow">JUNIOR HIGHSCHOOL</p><h3>Clarice Angels School</h3></section><section><p class="rb-about-eyebrow">SENIOR HIGHSCHOOL</p><h3>University of Luzon</h3><p>TVL ICT Computer Programming</p></section><section><p class="rb-about-eyebrow">COLLEGE</p><h3>University of the Cordilleras</h3><p>Bachelor of Science in Information Technology (BSIT)</p><p>Web Development</p></section></div></article>' +
+      '<article class="rb-about-card rb-achievements-panel"><h2>Education</h2><div class="rb-education-timeline"><section><div class="rb-school-heading"><img class="rb-school-logo" src="https://framerusercontent.com/images/cOgTFjqUSzmaOn9hHZq2Bf3Vdc.png?width=447&amp;height=447&amp;kb=208" alt="Clarice Angels School logo" decoding="async"><div><p class="rb-about-eyebrow">ELEMENTARY</p><p class="rb-school-years">2014–2020</p></div></div><h3>Clarice Angels School</h3></section><section><div class="rb-school-heading"><img class="rb-school-logo" src="https://framerusercontent.com/images/cOgTFjqUSzmaOn9hHZq2Bf3Vdc.png?width=447&amp;height=447&amp;kb=208" alt="Clarice Angels School logo" decoding="async"><div><p class="rb-about-eyebrow">JUNIOR HIGHSCHOOL</p><p class="rb-school-years">2020–2024</p></div></div><h3>Clarice Angels School</h3></section><section><div class="rb-school-heading"><img class="rb-school-logo" src="https://framerusercontent.com/images/EIm1HiFVndFVcPFbTFXoD8ZWhl4.png?width=200&amp;height=200&amp;kb=83" alt="University of Luzon logo" decoding="async"><div><p class="rb-about-eyebrow">SENIOR HIGHSCHOOL</p><p class="rb-school-years">2024–2026</p></div></div><h3>University of Luzon</h3><p>TVL ICT Computer Programming</p></section><section><div class="rb-school-heading"><img class="rb-school-logo" src="https://framerusercontent.com/images/PYRj2R6Y51cwvilvxvVjrGWXeWU.png?width=350&amp;height=286&amp;kb=97" alt="University of the Cordilleras logo" decoding="async"><div><p class="rb-about-eyebrow">COLLEGE</p><p class="rb-school-years">2026–Current</p></div></div><h3>University of the Cordilleras</h3><p>Bachelor of Science in Information Technology (BSIT)</p><p>Web Development</p></section></div></article>' +
       '<article class="rb-about-card rb-achievements-panel rb-expand-academic"><button type="button" class="rb-panel-open" data-act="expand-achievement" data-panel="academic" aria-label="Open Academic Achievements"></button><button type="button" class="rb-btn rb-panel-return" data-act="close-achievement">Back to all three panels</button><h2>Academic Achievements</h2><div class="rb-achievements-cards">' + cards + '</div></article>' +
       '<article class="rb-about-card rb-achievements-panel rb-expand-cocurricular"><button type="button" class="rb-panel-open" data-act="expand-achievement" data-panel="cocurricular" aria-label="Open Co-curricular Achievements"></button><button type="button" class="rb-btn rb-panel-return" data-act="close-achievement">Back to all three panels</button><h2>Co-curricular Achievements</h2><div class="rb-achievements-cards"><article class="rb-achievement-item"><div class="rb-photo" style="height:90px;border-radius:12px;margin-top:0"><img src="https://framerusercontent.com/images/ujtMYVif5K8UI1vwXxCGA2ZFFBI.png?width=576&height=768&kb=619" alt="2nd Place Table tennis Grade 11"></div><h3>2nd Place Table tennis Grade 11</h3></article><article class="rb-achievement-item"><div class="rb-photo" style="height:90px;border-radius:12px;margin-top:0"><img src="https://framerusercontent.com/images/aZU5eQY0e7Ifs1qhqgXljC8XGBU.png?width=576&height=768&kb=637" alt="2nd place volleyball Grade 11"></div><h3>2nd place volleyball Grade 11</h3></article><article class="rb-achievement-item"><div class="rb-photo" style="height:90px;border-radius:12px;margin-top:0"><img src="https://framerusercontent.com/images/zwxdkQwtjIMP1dVcXBAyKwSvk.png?width=1920&height=1080&kb=2123" alt="Champion Sabayang pagbigkas Grade 12"></div><h3>Champion Sabayang pagbigkas Grade 12</h3></article><article class="rb-achievement-item"><div class="rb-photo" style="height:90px;border-radius:12px;margin-top:0"><img src="https://framerusercontent.com/images/2ihftyljlztobZSNWrRgtq8Fp4.png?width=1536&height=2048&kb=2158" alt="Mr.UL SHS First Runner up Grade 12"></div><h3>Mr.UL SHS First Runner up Grade 12</h3></article></div></article>' +
     '</div>';
