@@ -458,6 +458,27 @@ body{overflow:hidden}
 .rb-portfolio .rb-personal-details p{margin:0;font-size:12px;line-height:1.6;color:var(--about-text,var(--fg))}
 .rb-portfolio .rb-personal-details .rb-about-label{display:inline;margin-right:6px}
 .rb-portfolio.tab-1 .rb-main{overflow-y:auto;overflow-x:hidden}
+
+/* Give all four academic achievements the same space as the co-curricular gallery. */
+.rb-portfolio:not(.rb-achievements-full) .rb-expand-academic .rb-achievements-cards,
+.rb-portfolio.rb-open-academic .rb-expand-academic .rb-achievements-cards{
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ grid-template-rows:minmax(0,1fr);
+}
+@media(max-width:900px){
+ .rb-portfolio.rb-open-academic .rb-expand-academic .rb-achievements-cards{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:repeat(2,minmax(0,1fr));
+ }
+}
+@media(max-width:700px){
+ .rb-portfolio:not(.rb-achievements-full) .rb-expand-academic .rb-achievements-cards{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+ }
+ .rb-portfolio:not(.rb-achievements-full) .rb-expand-academic{min-height:360px}
+}
+
 </style>
 </head>
 <body>
@@ -505,6 +526,12 @@ body{overflow:hidden}
             "year": "",
             "description": "",
             "image": "https://framerusercontent.com/images/PpRIYecxWIHNyavL2vE7lkn5OE.png?width=1536&height=2048&kb=2580"
+      },
+      {
+            "title": "Elementary Graduate Certificate",
+            "year": "",
+            "description": "",
+            "image": "https://framerusercontent.com/images/B0qAITVmnjz2bjOw5Ihw8PCgllA.png?width=768&height=1024&kb=828"
       }
 ]
   };
